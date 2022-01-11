@@ -16,6 +16,7 @@ LumberGui.Name = "LumberGui"
 LumberGui.Parent = LoginGui
 LumberGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 LumberGui.ResetOnSpawn = false
+LumberGui.Enabled = true
 
 LumberFrame.Name = "LumberFrame"
 LumberFrame.Parent = LumberGui
@@ -23,6 +24,7 @@ LumberFrame.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
 LumberFrame.BorderSizePixel = 0
 LumberFrame.Position = UDim2.new(-0.999000013, 0, 0.542743504, 0)
 LumberFrame.Size = UDim2.new(0, 178, 0, 224)
+LumberFrame.Visible = true
 
 DupeMoney.Name = "DupeMoney"
 DupeMoney.Parent = LumberFrame
