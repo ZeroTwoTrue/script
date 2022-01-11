@@ -3,6 +3,13 @@
 
 -- Instances:
 
+local LoginGui = Instance.new("ScreenGui")
+local LoginFrame = Instance.new("Frame")
+local Welcome = Instance.new("TextLabel")
+local Password = Instance.new("TextBox")
+local Enter = Instance.new("TextButton")
+local Invalid = Instance.new("TextLabel")
+local Correct = Instance.new("TextLabel")
 local LumberGui = Instance.new("ScreenGui")
 local LumberFrame = Instance.new("Frame")
 local DupeMoney = Instance.new("TextButton")
@@ -12,11 +19,90 @@ local SlotNumber = Instance.new("TextBox")
 
 --Properties:
 
+LoginGui.Name = "LoginGui"
+LoginGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+LoginGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+LoginGui.ResetOnSpawn = false
+
+LoginFrame.Name = "LoginFrame"
+LoginFrame.Parent = LoginGui
+LoginFrame.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+LoginFrame.BorderSizePixel = 0
+LoginFrame.Position = UDim2.new(0.374087572, 0, 0.328031778, 0)
+LoginFrame.Size = UDim2.new(0, 276, 0, 172)
+
+Welcome.Name = "Welcome"
+Welcome.Parent = LoginFrame
+Welcome.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Welcome.BackgroundTransparency = 1.000
+Welcome.Position = UDim2.new(0.137681156, 0, 0.0448909104, 0)
+Welcome.Size = UDim2.new(0, 200, 0, 40)
+Welcome.Font = Enum.Font.SourceSansBold
+Welcome.Text = "Login System"
+Welcome.TextColor3 = Color3.fromRGB(255, 255, 255)
+Welcome.TextScaled = true
+Welcome.TextSize = 14.000
+Welcome.TextWrapped = true
+
+Password.Name = "Password"
+Password.Parent = LoginFrame
+Password.BackgroundColor3 = Color3.fromRGB(7, 7, 7)
+Password.BorderSizePixel = 0
+Password.Position = UDim2.new(0.137681156, 0, 0.311393887, 0)
+Password.Size = UDim2.new(0, 200, 0, 50)
+Password.Font = Enum.Font.SourceSansBold
+Password.PlaceholderText = "Enter key here"
+Password.Text = ""
+Password.TextColor3 = Color3.fromRGB(255, 255, 255)
+Password.TextScaled = true
+Password.TextSize = 14.000
+Password.TextWrapped = true
+
+Enter.Name = "Enter"
+Enter.Parent = LoginFrame
+Enter.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Enter.BorderSizePixel = 0
+Enter.Position = UDim2.new(0.137681156, 0, 0.639534891, 0)
+Enter.Size = UDim2.new(0, 200, 0, 50)
+Enter.Font = Enum.Font.SourceSansBold
+Enter.Text = "Enter"
+Enter.TextColor3 = Color3.fromRGB(255, 255, 255)
+Enter.TextScaled = true
+Enter.TextSize = 14.000
+Enter.TextWrapped = true
+
+Invalid.Name = "Invalid"
+Invalid.Parent = LoginFrame
+Invalid.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Invalid.BackgroundTransparency = 1.000
+Invalid.Position = UDim2.new(0.137681156, 0, -0.280690491, 0)
+Invalid.Size = UDim2.new(0, 200, 0, 40)
+Invalid.Visible = false
+Invalid.Font = Enum.Font.SourceSansBold
+Invalid.Text = "Invalid Password"
+Invalid.TextColor3 = Color3.fromRGB(255, 55, 55)
+Invalid.TextScaled = true
+Invalid.TextSize = 14.000
+Invalid.TextWrapped = true
+
+Correct.Name = "Correct"
+Correct.Parent = LoginFrame
+Correct.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Correct.BackgroundTransparency = 1.000
+Correct.Position = UDim2.new(0.137681156, 0, -0.280690491, 0)
+Correct.Size = UDim2.new(0, 200, 0, 40)
+Correct.Visible = false
+Correct.Font = Enum.Font.SourceSansBold
+Correct.Text = "Correct Password"
+Correct.TextColor3 = Color3.fromRGB(55, 255, 55)
+Correct.TextScaled = true
+Correct.TextSize = 14.000
+Correct.TextWrapped = true
+
 LumberGui.Name = "LumberGui"
 LumberGui.Parent = LoginGui
 LumberGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 LumberGui.ResetOnSpawn = false
-LumberGui.Enabled = true
 
 LumberFrame.Name = "LumberFrame"
 LumberFrame.Parent = LumberGui
@@ -24,7 +110,6 @@ LumberFrame.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
 LumberFrame.BorderSizePixel = 0
 LumberFrame.Position = UDim2.new(-0.999000013, 0, 0.542743504, 0)
 LumberFrame.Size = UDim2.new(0, 178, 0, 224)
-LumberFrame.Visible = true
 
 DupeMoney.Name = "DupeMoney"
 DupeMoney.Parent = LumberFrame
@@ -85,6 +170,27 @@ SlotNumber.TextWrapped = true
 
 -- Scripts:
 
+local function OXXQLL_fake_script() -- LoginFrame.LocalScript 
+	local script = Instance.new('LocalScript', LoginFrame)
+
+	script.Parent.Enter.Activated:Connect(function()
+		if script.Parent.Password.Text == "LumberTycoon2Script" then
+			script.Parent.Correct.Visible = true
+			script.Parent:TweenPosition(UDim2.new(0.374, 0,-0.999, 0))
+			wait(1)
+			script.Parent.Visible = false
+			script.Parent.Parent.LumberGui.Enabled = true
+			script.Parent.Parent.LumberGui.Parent = game.Players.LocalPlayer.PlayerGui
+			game.Players.LocalPlayer.PlayerGui.LumberGui.LumberFrame:TweenPosition(UDim2.new(0.007, 0, 0.543, 0))
+			script.Parent.Parent:Destroy()
+		else
+			script.Parent.Invalid.Visible = true
+			wait(2)
+			script.Parent.Invalid.Visible = false
+		end
+	end)
+end
+coroutine.wrap(OXXQLL_fake_script)()
 local function XHMMMS_fake_script() -- LumberFrame.LocalScript 
 	local script = Instance.new('LocalScript', LumberFrame)
 
